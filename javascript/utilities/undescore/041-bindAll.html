@@ -1,0 +1,83 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="bindAll"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                addButton('list-button', 'List Authors');
+
+                var
+                    vm = {
+                        authors: ['Dan', 'Elijah', 'John', 'Craig'],
+
+                        listNames: function() {
+                            debugger;
+                            log(this.authors);
+                        }
+                    },
+
+                    listButton = $('#list-button');
+
+                logBold('Unattached');
+                vm.listNames();
+
+                _.bindAll(vm);
+
+                logBold('Attached');
+                listButton.click(vm.listNames);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Specifying Method Names">
+            var step2 = function () {
+                //---
+                addButton('name-button', 'Show Name');
+                addButton('id-button', 'Show ID');
+
+                var
+                    vm = {
+                        name: "Craig Shoemaker",
+
+                        logName: function() {
+                            // 'this' points to vm
+                            log(this.name); 
+                        },
+
+                        logButtonId: function() {
+                            // 'this' points to button
+                            log(this.id); 
+                        }
+                    },
+
+                    listButton = $('#name-button'),
+                    
+                    idButton = $('#id-button');
+
+                _.bindAll(vm, 'logName');
+
+                listButton.click(vm.logName);
+
+                idButton.click(vm.logButtonId);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

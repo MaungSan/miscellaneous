@@ -1,0 +1,93 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="tap"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                var
+                    authors = [
+                        {
+                            id: 1001,
+                            name: "Craig Shoemaker",
+                            state: "CA",
+                            twitter: ""
+                        },
+                        {
+                            id: 1002,
+                            name: "John Papa",
+                            state: "FL",
+                            twitter: ""
+                        },
+                        {
+                            id: 1003,
+                            name: "Dan Wahlin",
+                            state: "AZ",
+                            twitter: ""
+                        },
+                        {
+                            id: 1004,
+                            name: "John Sonmez",
+                            state: "FL",
+                            twitter: ""
+                        },
+                        {
+                            id: 1005,
+                            name: "Elijah Manor",
+                            state: "TN",
+                            twitter: ""
+                        }
+                    ],
+
+                    twitterHandles = [
+                        { id: 1001, twitter: "craigshoemaker" },
+                        { id: 1002, twitter: "John_Papa" },
+                        { id: 1003, twitter: "DanWahlin" },
+                        { id: 1004, twitter: "jsonmez" },
+                        { id: 1005, twitter: "elijahmanor" }
+                    ],
+                    
+                    addTwitterHandle = function(authors) {
+
+                      _(authors).each(function(value, key, list) {
+
+                          _.filter(twitterHandles,
+                              function(handle) {
+
+                                if (value.id === handle.id) {
+                                  value.twitter =
+                                      handle.twitter;
+                                  return true;
+                                }
+                              return false;
+                            });
+                        });
+                    },
+                    
+                    authorsInFlorida = _.chain(authors)
+                        .where({ state: 'FL' })
+                        .tap(addTwitterHandle)
+                        .value();
+
+                _(authorsInFlorida).each(logObject);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

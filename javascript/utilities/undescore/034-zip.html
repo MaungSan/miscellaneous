@@ -1,0 +1,72 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="zip"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Flat Array">
+            var step1 = function() {
+                //---
+                var
+                    authors = ['Craig', 'John'],
+
+                    states = ['CA', 'FL'],
+
+                    courses = [
+                        'HTML5 Fundamentals',
+                        'Single Page Apps JumpStart'
+                    ],
+
+                    allValues = _.zip(authors, states, courses);
+
+                debugger;
+
+                log(allValues);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Nested Arrays">
+            var step2 = function() {
+                //---
+                var
+                    authors = ['Craig', 'John'],
+
+                    states = ['CA', 'FL'],
+
+                    courses = [
+                        [
+                            'HTML5 Fundamentals',
+                            'HTML5 Advanced Topics'
+                        ],
+                        [
+                            'Single Page Apps JumpStart',
+                            'TypeScript Fundamentals'
+                        ]
+                    ],
+
+                    allValues = _.zip(authors, states, courses);
+
+                debugger; 
+
+                log(allValues);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+        <script src="js/first-names.js"></script>
+    </body>
+</html>

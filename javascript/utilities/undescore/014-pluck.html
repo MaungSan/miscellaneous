@@ -1,0 +1,71 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="pluck"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Object Array">
+            var step1 = function() {
+                //---
+                var
+                    authors = [
+                        { name: "John", state: "FL" },
+                        { name: "Dan", state: "AZ" }
+                    ],
+
+                    results = _.pluck(authors, 'name');
+
+                logBold('Pluck author names:');
+                log(results);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Object Array (complex objects)">
+            var step2 = function() {
+                //---
+                var
+                    authors = [
+                        {
+                            name: "John",
+                            state: "FL",
+                            "courses": [
+                                "HTML5 Canvas Fundamentals",
+                                "Introduction to ASP.NET 4 WebForms",
+                                "jQuery Fundamentals"
+                            ]
+                        },
+                        {
+                            name: "Dan",
+                            state: "AZ",
+                            "courses": [
+                                "Single Page Apps JumpStart ",
+                                "Single Page Apps with HTML5, Web API, Knockout and jQuery",
+                                "TypeScript Fundamentals"
+                            ]
+                        }
+                    ],
+
+                    results = _.pluck(authors, 'courses');
+
+                logBold('Pluck courses:');
+                log(results);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

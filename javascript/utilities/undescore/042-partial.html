@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="partial"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                addButton('list-button', 'List Authors');
+
+                var
+                    vm = {
+                        authors: ['Dan', 'Elijah', 'John', 'Craig'],
+
+                        listNames: function(msg, showMessage) {
+                          _(this.authors).each(function(author) {
+                              msg = showMessage === true ? msg : '';
+                              log(author + ' ' + msg);
+                          });
+                        }
+                    },
+
+                    listButton = $('#list-button');
+
+                _.bindAll(vm);
+
+                var reportAuthors = _.partial(vm.listNames,
+                    'is a Pluralsight author.');
+
+                logBold('Unattached');
+                reportAuthors(true);
+
+                logBold('Attached');
+                listButton.click(reportAuthors);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

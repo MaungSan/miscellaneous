@@ -1,0 +1,48 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="union"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function() {
+                //---
+                var
+                    speakers = [
+                        'Scott Guthrie',
+                        'John Papa',
+                        'Dan Wahlin',
+                        'Craig Shoemaker',
+                        'Elijah Manor',
+                        'Martin Folwer'
+                    ],
+
+                    authors = [
+                        'John Papa',
+                        'Dan Wahlin',
+                        'Craig Shoemaker',
+                        'Elijah Manor'
+                    ],
+                    
+                    invitees = _.union(speakers, authors);
+
+                log(invitees);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

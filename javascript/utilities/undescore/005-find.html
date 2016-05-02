@@ -1,0 +1,101 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="find"  />
+        <meta name="alias" content="detect"  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integer Array">
+            var step1 = function() {
+                //---
+                var
+                    values = [1,2,3,4,5,6,7,8,9,10],
+
+                    evenCriteria = function(value) {
+                        return value % 2 === 0;
+                    },
+
+                    oddCriteria = function(value) {
+                        return value % 2 !== 0;
+                    },
+
+                    greaterThanEightCriteria = function(value) {
+                        return value > 8;
+                    },
+
+                    lessThanFiveCriteria = function(value) {
+                        return value < 5;
+                    };
+
+                log('First even number: '
+                    + _.find(values, evenCriteria));
+
+                log('First odd number: '
+                    + _.find(values, oddCriteria));
+
+                log('First number > 8: '
+                    + _.find(values, greaterThanEightCriteria));
+
+                log('First number < 5: '
+                    + _.find(values, lessThanFiveCriteria));
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Object Array">
+            var step2 = function() {
+                //---
+                var
+                    values = [
+                        { name: "Craig", state: "CA", price: 1 },
+                        { name: "John", state: "FL", price: 2 },
+                        { name: "Dan", state: "AZ", price: 8.5 },
+                        { name: "Elijah", state: "TN", price: 2.75 }
+                    ],
+
+                    evenCriteria = function(value) {
+                        return value.price % 2 === 0;
+                    },
+
+                    oddCriteria = function(value) {
+                        return value.price % 2 !== 0;
+                    },
+
+                    greaterThanEightCriteria = function(value) {
+                        return value.price > 8;
+                    },
+
+                    lessThanFiveCriteria = function(value) {
+                        return value.price < 5;
+                    };
+
+                log('First even price: '
+                    + _.find(values, evenCriteria).price);
+
+                log('First odd price: '
+                    + _.find(values, oddCriteria).price);
+
+                log('First price > 8: '
+                    + _.find(values, greaterThanEightCriteria).price);
+
+                log('First price < 5: '
+                    + _.find(values, lessThanFiveCriteria).price);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

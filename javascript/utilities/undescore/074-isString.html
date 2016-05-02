@@ -1,0 +1,44 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="isString"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                var
+                    bigArrayOfEverything = [
+                      Infinity, -Infinity, null, undefined,
+                      '', [], {}, +'forcing NaN',
+                      1, 'string', true, false,
+                      (new Date()), /regex/,
+                      [1, 2, 3], [{ id: 1 }, { id: 2 }],
+                      { id: 1 },
+                      document.getElementsByTagName('article')[0],
+                      $('article')[0],
+                      (function() { return arguments; })(1, 2, 3),
+                      (function() { return arguments; })(),
+                      function() { console.log('test'); },
+                    ];
+
+                logDescriptions(bigArrayOfEverything, _.isString);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="memoize"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Concepts">
+            var step1 = function() {
+                //---
+                var
+                    showNumber = function(value) {
+                        log('The function is run for: ' + value);
+                        return value;
+                    },
+
+                    showNumberMemozied = _.memoize(showNumber),
+
+                    num;
+
+                logBold('First Run:');
+                for (var i = 0; i < 10; i++) {
+                    num = showNumberMemozied(i);
+                    log('The result is: ' + num);
+                }
+
+                logBold('Second Run:');
+                for (var i = 0; i < 10; i++) {
+                    num = showNumberMemozied(i);
+                    log('The result is: ' + num);
+                }
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="No Memoization">
+            var step2 = function () {
+                //---
+                var
+                    getFibonacciValue = function(n) {
+                        return n < 2 ? n :
+                            getFibonacciValue(n - 1) +
+                            getFibonacciValue(n - 2);
+                    },
+
+                    val = 0,
+
+                    target = 30;
+
+                console.time('Direct Call #1');
+                val = getFibonacciValue(target);
+                console.timeEnd('Direct Call #1');
+                logBold('Final Result:');
+                log(val);
+
+                console.time('Direct Call #2');
+                val = getFibonacciValue(target);
+                console.timeEnd('Direct Call #2');
+                logBold('Final Result:');
+                log(val);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="With Memoization">
+            var step3 = function() {
+                //---
+                addButton('fib-button', 'Run Again');
+
+                var
+                    getFibonacciValue = function(n) {
+                        return n < 2 ? n :
+                            getFibonacciValue(n - 1) +
+                            getFibonacciValue(n - 2);
+                    },
+
+                    getFibonacciValueMemoized = _.memoize(getFibonacciValue),
+
+                    val = 0,
+
+                    target = 30,
+
+                    getValue = function() {
+                        console.time('Memoized Call');
+                        val = getFibonacciValueMemoized(target);
+                        console.timeEnd('Memoized Call');
+                        logBold('Final Result:');
+                        log(val);
+                    };
+
+                $('#fib-button').click(getValue);
+
+                getValue();
+                getValue();
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

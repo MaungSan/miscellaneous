@@ -1,0 +1,49 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="has"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                var
+                    author = {
+                      name: "Craig Shoemaker",
+                      hasOwnProperty: "I'm overwriting the native function!"
+                    };
+
+                logBold('Does the \'name\' property exist?');
+                log(_(author).has('name'));
+
+                try {
+                    log(author.hasOwnProperty('name'));
+                } catch(error) {
+                    logBold('Call to native implemenation failed ' +
+                        'since it was overwritten.<br />');
+                }
+
+                logBold('Does the \'hasOwnProperty\' property exist?');
+                log(_.has(author, 'hasOwnProperty'));
+
+                logBold('Value of \'hasOwnProperty\':');
+                log(author.hasOwnProperty);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

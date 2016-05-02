@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="range"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Stop Value">
+            var step1 = function () {
+                //---
+                var
+                    values = _.range(6);
+
+                log(values);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Start &amp; Stop Value">
+            var step2 = function () {
+                //---
+                var
+                    values = _.range(-2, 6);
+
+                log(values);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Start, Stop &amp; Step">
+            var step3 = function() {
+                //---
+                var
+                    values = _.range(-2, 6, 2);
+
+                log(values);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

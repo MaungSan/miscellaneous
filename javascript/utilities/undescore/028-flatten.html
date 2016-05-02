@@ -1,0 +1,140 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="flatten"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function() {
+                //---
+                var
+                    author = [
+                        'Craig',
+                        'Shoemaker',
+                        [
+                            'Building Windows 8 Applications with JavaScript and HTML',
+                            [
+                                'Introduction',
+                                'Application and Page Lifecycle',
+                                'Namespaces',
+                                'Navigation',
+                                'Binding and Model View ViewModel',
+                                'Layout',
+                                'Controls',
+                                'State Management',
+                                'Using Managed Libraries and Components'
+                            ],
+                            'HTML5 Advanced Topics',
+                            [
+                                'Offline Applications',
+                                'Geolocation',
+                                'Web Storage',
+                                'Web Workers',
+                                'Web Sockets',
+                                'Microdata'
+                            ],
+                            'HTML5 Fundamentals',
+                            [
+                                'Introduction',
+                                'Forms API',
+                                'Canvas',
+                                'Media'
+                            ]
+                        ],
+                        [
+                            'http://craigshoemaker.net',
+                            'http://polymorphicpodcast.com',
+                            'http://twitter.com/craigshoemaker'
+                        ]
+                    ],
+                    
+                    flat = _.flatten(author);
+
+                debugger;
+
+                logBold('The flattened array length is:');
+                log(flat.length);
+
+                logBold('Values:');
+                log(flat);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Shallow">
+            var step2 = function() {
+                //---
+                var
+                    author = [
+                        'Craig',
+                        'Shoemaker',
+                        [
+                            'Building Windows 8 Applications with JavaScript and HTML',
+                            [
+                                'Introduction',
+                                'Application and Page Lifecycle',
+                                'Namespaces',
+                                'Navigation',
+                                'Binding and Model View ViewModel',
+                                'Layout',
+                                'Controls',
+                                'State Management',
+                                'Using Managed Libraries and Components'
+                            ],
+                            'HTML5 Advanced Topics',
+                            [
+                                'Offline Applications',
+                                'Geolocation',
+                                'Web Storage',
+                                'Web Workers',
+                                'Web Sockets',
+                                'Microdata'
+                            ],
+                            'HTML5 Fundamentals',
+                            [
+                                'Introduction',
+                                'Forms API',
+                                'Canvas',
+                                'Media'
+                            ]
+                        ],
+                        [
+                            'http://craigshoemaker.net',
+                            'http://polymorphicpodcast.com',
+                            'http://twitter.com/craigshoemaker'
+                        ]
+                    ],
+
+                    shallow = _.flatten(author, true);
+
+                debugger;
+
+                logBold('The shallow array length is:');
+                log(shallow.length);
+
+                logBold('Values (excluding 3 arrays):');
+
+                _.each(shallow, function(value) {
+                    if (!_.isArray(value)) {
+                        log(value);
+                    }
+                });
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

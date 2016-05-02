@@ -1,0 +1,78 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="lastIndexOf"  />
+        <meta name="native" content="true"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integers">
+            var step1 = function() {
+                //---
+                var
+                    values = [1, 5, 9, 3, 6, 8, 0, 1, 5, 4],
+
+                    index = _.lastIndexOf(values, 5);
+
+                logBold('Last index of \'5\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Strings">
+            var step2 = function() {
+                //---
+                var
+                    authors = ['Craig', 'Dan', 'Elijah', 'John', 'Elijah', 'Dan'],
+
+                    index = _.lastIndexOf(authors, 'Elijah');
+
+                logBold('Last index of \'Elijah\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Start Location">
+            var step3 = function() {
+                //---
+                var
+                    authors = ['Craig', 'Dan', 'Elijah', 'John', 'Elijah', 'Dan'],
+
+                    index = _.lastIndexOf(authors, 'Elijah', 3);
+
+                logBold('Last index of \'Elijah\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="Not Found">
+            var step4 = function() {
+                //---
+                var
+                    authors = ['Craig', 'Dan', 'Elijah', 'John', 'Elijah', 'Dan'],
+
+                    index = _.lastIndexOf(authors, 'Billy');
+
+                logBold('Last index of \'Billy\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

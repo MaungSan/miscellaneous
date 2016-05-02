@@ -1,0 +1,119 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="sortedIndex"  />
+        <meta name="alias" content=""  />
+        <meta name="context" content="true"  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integer Array">
+            var step1 = function() {
+                //---
+                var
+                    values = [
+                        1, 5, 9, 3, 6, 8, 0, 1, 5, 4
+                    ].sort(),
+
+                    markup = '<ol start="0">',
+
+                    logValues = function(value) {
+                        markup += '<li>' + value + '</li>';
+                    },
+
+                    index = _.sortedIndex(values, 7);
+
+                logBold('Values:');
+
+                _.each(values, logValues);
+
+                logRaw(markup);
+
+                logBold('The index to insert \'7\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="String Array">
+            var step2 = function() {
+                //---
+                var
+                    authors = [
+                     'Craig', 'Dan',
+                     'Elijah', 'John',
+                     'Elijah', 'Dan'
+                    ].sort(),
+
+                    markup = '<ol start="0">',
+
+                    logAuthors = function(author) {
+                        markup += '<li>' + author + '</li>';
+                    },
+
+                    index = _.sortedIndex(authors, 'Elijah');
+
+                logBold('Authors:');
+
+                _.each(authors, logAuthors);
+
+                logRaw(markup);
+
+                logBold('The index to insert \'Elijah\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Object Array with Iterator">
+            var step3 = function() {
+                //---
+                var
+                    authors = [
+                        { name: "Craig", state: "CA" },
+                        { name: "Dan", state: "AZ" },
+                        { name: "Elijah", state: "TN" },
+                        { name: "John", state: "FL" }
+                    ],
+
+                    julie = { name: 'Julie', state: 'VT'},
+
+                    markup = '<ol start="0">',
+
+                    logValues = function(author) {
+                        markup += '<li>' + author.name + '</li>';
+                    },
+
+                    sortingIterator = function(author) {
+                        return author.name;
+                    }
+
+                index = _.sortedIndex(authors, julie,
+                            sortingIterator);
+
+                logBold('Authors:');
+
+                _.each(authors, logValues);
+
+                logRaw(markup);
+
+                logBold('The index to insert \'Julie\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

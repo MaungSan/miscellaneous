@@ -1,0 +1,81 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="isEqual"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Shallow Object">
+            var step1 = function () {
+                //---
+                var
+                    author = { name: 'Craig Shoemaker' },
+
+                    clone = _.clone(author);
+
+                logBold('Considered equal by \'==\'?');
+                log(author == clone);
+
+                logBold('Considered equal by \'===\'?');
+                log(author === clone);
+
+                logBold('Considered equal by \'_.isEqual()\'?');
+                log(_.isEqual(author, clone));
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Deep Object">
+            var step2 = function () {
+                //---
+                var
+                    author1 = {
+                        active: true,
+                        name: {
+                            first: 'Craig',
+                            last: 'Shoemaker'
+                        }
+                    },
+
+                    author2 = {
+                        active: true,
+                        name: {
+                            first: 'Craig',
+                            last: 'Shoemaker'
+                        }
+                    };
+
+                logBold('Considered equal by \'==\'?');
+                log(author1 == author2);
+
+                logBold('Considered equal by \'===\'?');
+                log(author1 === author2);
+
+                logBold('Considered equal by \'_.isEqual()\'?');
+                log(_.isEqual(author1, author2));
+
+                logBold('Setting author2.name.first = \'Dan\':<br />');
+
+                author2.name.first = 'Dan';
+
+                logBold('Considered equal by \'_.isEqual()\'?');
+                log(_.isEqual(author1, author2));
+
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

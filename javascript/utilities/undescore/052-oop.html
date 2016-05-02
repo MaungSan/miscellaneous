@@ -1,0 +1,62 @@
+<!doctype>
+<html>
+    <head>
+        <meta name=title content="oop" data-nolink="true"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Each">
+            var step1 = function () {
+                //---
+                var
+                    authors = [
+                        { name: "John Papa", state: "FL" },
+                        { name: "John Sonmez", state: "FL" },
+                        { name: "Dan Wahlin", state: "AZ" },
+                        { name: "Elijah Manor", state: "TN" },
+                        { name: "Craig Shoemaker", state: "CA" },
+                        { name: "Jon Flanders", state: "CA" }
+                    ];
+					
+                _(authors).each(logProperty, 'name');
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="First / Last">
+            var step2 = function () {
+                //---
+                var
+                    authors = [
+                        'John Papa',
+                        'John Sonmez',
+                        'Dan Wahlin',
+                        'Elijah Manor',
+                        'Craig Shoemaker',
+                        'Jon Flanders'
+                    ],
+
+                    first = _(authors).first(),
+
+                    last = _(authors).last();
+
+                log(first);
+                log(last);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

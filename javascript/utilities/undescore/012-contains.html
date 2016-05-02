@@ -1,0 +1,55 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="contains"  />
+        <meta name="alias" content="include"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Mixed Array">
+            var step1 = function() {
+                //---
+                var values = [true, 1, null, 'yes'];
+
+                logBold('Does the array contain a null?');
+                log(_.contains(values, null));
+
+                logBold('Does the array contain the number 1?');
+                log(_.contains(values, 1));
+
+                logBold('Does the array contain the string "yes"?');
+                log(_.include(values, 'yes'));
+
+                logBold('Does the array contain a false boolean?');
+                log(_.include(values, false));
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Object">
+            var step2 = function() {
+                //---
+                var
+                    author = {
+                        firstName: "Craig",
+                        lastName: "Shoemaker"
+                    };
+
+                log(_.contains(author, 'Craig'));
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

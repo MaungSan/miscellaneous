@@ -1,0 +1,157 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="uniq"  />
+        <meta name="alias" content="unique"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integers">
+            var step1 = function() {
+                //---
+                var
+                    values = [1, 5, 9, 3, 6, 8, 0, 1, 5, 4],
+
+                    uniqueValues = _.uniq(values);
+
+                log(uniqueValues);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Strings">
+            var step2 = function() {
+                //---
+                var
+                    authors = ['Craig', 'Dan', 'Elijah', 'John', 'Elijah', 'Dan'],
+
+                    uniqueValues = _.uniq(authors);
+
+                log(uniqueValues);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Unsorted">
+            var step3 = function() {
+                //---
+                // the 'firstNames' array is included
+                // via a script reference at the bottom
+                // of the page
+
+                var unique;
+
+                console.time('Unsorted');
+                unique = _.uniq(firstNames);
+                console.timeEnd('Unsorted');
+
+                logBold("Length of names array:");
+                log(firstNames.length);
+
+                logBold("Length unique names array:");
+                log(unique.length);
+
+                logBold('Unique Names');
+                log(unique);
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="Sorted">
+            var step4 = function() {
+                //---
+                // the 'firstNames' array is included
+                // via a script reference at the bottom
+                // of the page
+
+                var
+                    unique,
+                    values = firstNames.sort();
+
+                console.time('Sorted');
+                unique = _.uniq(values, true);
+                console.timeEnd('Sorted');
+
+                logBold('Length of names array:');
+                log(firstNames.length);
+
+                logBold('Length unique names array:');
+                log(unique.length);
+
+                logBold('Unique Names');
+                log(unique);
+                //---
+            }
+        </script>
+        <script data-step="5" data-label="Iterator">
+            var step5 = function() {
+                //---
+                var
+                    products = [
+                        {
+                            id: "723DC8EA-WH",
+                            title: "Widget A",
+                            color: "White"
+                        },
+                        {
+                            id: "723DC8EA-BL",
+                            title: "Widget A",
+                            color: "Blue"
+                        },
+                        {
+                            id: "F89A10AD-RE",
+                            title: "Widget B",
+                            color: "Red"
+                        },
+                        {
+                            id: "F89A10AD-BK",
+                            title: "Widget B",
+                            color: "Black"
+                        }
+                    ],
+
+                    uniqueCriteria = function(product) {
+                        var
+                            parts = product.id.split('-');
+
+                        if (parts.length > 0) {
+                            return parts[0];
+                        } else {
+                            return product.title;
+                        }
+                    },
+
+                    logProduct = function(product) {
+                        log(product.title);
+                    },
+
+                    unique = _.unique(products,
+                                false, uniqueCriteria);
+
+                logBold('Length of products array:');
+                log(products.length);
+
+                logBold('Length custom unique products array:');
+                log(unique.length);
+
+                logBold('Unique Names');
+                _.each(unique, logProduct);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+        <script src="js/first-names.js"></script>
+    </body>
+</html>

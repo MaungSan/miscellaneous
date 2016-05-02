@@ -1,0 +1,91 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="mixin"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Trim End">
+            var step1 = function () {
+                //---
+                _.mixin({
+                    trimEnd: function(originalString, stringToTrim) {
+                        return originalString.substring(0,
+                            originalString.length - stringToTrim.length);
+                    }
+                });
+
+                logBold('OOP:');
+                log(_('Craig').trimEnd('g'));
+
+                logBold('Functional:');
+                log(_.trimEnd('Craig', 'g'));
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Reverse String">
+            var step2 = function () {
+                //---
+                _.mixin({
+                    reverseString: function(str) {
+                        return _.toArray(str).reverse().join('');
+                    }
+                });
+
+
+                logBold('OOP:');
+                log(_('Craig').reverseString());
+
+                logBold('Functional:');
+                log(_.reverseString('Craig'));
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Sum">
+            var step3 = function() {
+                //---
+                _.mixin({
+                    sum: function(value, key) {
+                        var returnValue = 0;
+
+                        returnValue = _.reduce(value,
+                            function(memo, value) {
+                                value = _.isNumber(value) ?
+                                    value : value[key];
+                            return memo + value;
+                        }, 0);
+
+                        return returnValue;
+                    }
+                });
+
+
+                logBold('OOP:');
+                log(_([2,2,2]).sum());
+
+                logBold('Functional:');
+                log(_.sum([
+                    { price: 1 },
+                    { price: 1 },
+                    { price: 1 }
+                ], 'price'));
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

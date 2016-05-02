@@ -1,0 +1,65 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="compose"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                var
+                    funcOne = function(prevValue) {
+                        debugger;
+
+                        logBold('funcOne');
+                        log('Result from previous function: ' + prevValue);
+
+
+                        return 'funcOne is complete';
+                    },
+
+                    funcTwo = function(prevValue) {
+                        debugger;
+
+                        logBold('funcTwo');
+                        log('Result from previous function: ' + prevValue);
+
+                        return 'funcTwo is complete';
+                    },
+
+                    funcThree = function() {
+                        debugger;
+                        var args = _.toArray(arguments);
+
+                        logBold('funcThree\'s arguments:');
+                        log(args);
+
+                        return 'funcThree is complete';
+                    },
+                    
+                    composition =
+                        _.compose(funcOne, funcTwo, funcThree);
+
+                var finalResult = composition('argument 1', 'argument 2');
+
+                logBold('Final result');
+                log(finalResult);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="toArray"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Convert 'arguments' to Real Array">
+            var step1 = function () {
+                //---
+                var
+                    sum = function() {
+                        var args = _.toArray(arguments);
+                        return _.reduce(args, function(memo, num) {
+                            return memo + num;
+                        });
+                    };
+
+                log('2+2 is: ' + sum(2, 2));
+
+                log('5+2+8 is: ' + sum(5, 2, 8));
+
+                log('6+8+1+4+9+2+10+1 is: ' + sum(6,8,1,4,9,2,10,1));
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="String">
+            var step2 = function () {
+                //---
+                var
+                    values = '1234',
+
+                    arr = _.toArray(values);
+
+                logBold('Strings are made up of individual characters:');
+                log(values[0]);
+
+                logBold('Use toArray to separate strings into characters:');
+                log(arr);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Object Values">
+            var step3 = function() {
+                //---
+                var
+                    person = {name: "Craig", state: "CA"},
+
+                    // NOTE: The 'values' function is a more
+                    // explicit way to accomplish this intent, 
+                    // but this is included so you can see how
+                    // 'toArray' behaves on an object.
+                    arr = _.toArray(person);
+
+                logBold('Extract values from an object:');
+                log(arr);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

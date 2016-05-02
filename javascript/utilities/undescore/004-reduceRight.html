@@ -1,0 +1,74 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="reduceRight"  />
+        <meta name="alias" content="foldr"  />
+        <meta name="native" content="true"  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Two Dimensional Array">
+            var step1 = function() {
+                //---
+                var productIDs = [
+                    [1001, 1002],
+                    [2001, 2002],
+                    [3001, 3002]
+                ];
+
+                var productIDList = _.reduceRight(productIDs,
+                    function(memo, val) {
+
+                        if (memo !== '') {
+                            memo += ','
+                        }
+
+                        return memo + val.reverse().join(',');
+                }, '');
+
+                logRaw(productIDList);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Object Array">
+            var step2 = function() {
+                //---
+                var products = [
+                    { id: 1001 },
+                    { id: 1002 },
+                    { id: 2001 },
+                    { id: 2002 },
+                    { id: 3001 },
+                    { id: 3002 }
+                ];
+
+                var productIDList = _.reduceRight(products,
+                    function(memo, val) {
+
+                        if (memo !== '') {
+                            memo += ','
+                        }
+
+                        return memo + val.id;
+                }, '');
+
+                logRaw(productIDList);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

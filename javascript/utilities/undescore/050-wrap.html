@@ -1,0 +1,114 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="wrap"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Named Function">
+            var step1 = function () {
+                //---
+                var
+                    foo = function() {
+                        log('foo');
+                    },
+
+                    bar = function(func, a1, a2) {
+                        func();
+                        log('bar');
+                        log(a1 + ' inside bar');
+                        log(a2 + ' inside bar');
+                    },
+
+                    wrapped = _.wrap(foo, bar);
+
+                wrapped('argument 1', 'argument 2');
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Anonymous Function">
+            var step2 = function () {
+                //---
+                var
+                    foo = function() {
+                        log('foo');
+                    },
+
+                    wrapped = _.wrap(foo, function(func, a1, a2) {
+                        func();
+                        log('bar');
+                        log(a1 + ' inside bar');
+                        log(a2 + ' inside bar');
+                    });
+
+                wrapped('argument 1', 'argument 2');
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="With Objects">
+            var step3 = function() {
+                //---
+                var
+                    settings = {
+                        log: true,
+                        warn: true
+                    },
+
+                    notify = _.wrap(settings,
+                        function(settings, msg) {
+
+                                if (settings.log) {
+                                    console.log(msg);
+                                }
+
+                                if (settings.warn) {
+                                    console.warn(msg);
+                                }
+
+                                log(msg);
+                    });
+
+                notify('Inventory critically low!');
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="With Arrays">
+            var step4 = function() {
+                //---
+                var
+                    values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+                    logLength = function(array) {
+
+                        if (array.length === 10) {
+                            log('The array\'s length is 10.');
+                        }
+                        else {
+                            log('The array\'s length is not 10.');
+                        }
+                    },
+
+                    wrapped = _.wrap(values, logLength);
+
+                wrapped();
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

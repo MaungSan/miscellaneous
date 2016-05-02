@@ -1,0 +1,95 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="template"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Single Simple Object">
+            var step1 = function () {
+                //---
+                var
+                    author = { name: 'Craig' },
+
+                    result =
+                        _.template('<%= name %> says, &quot;hi there!&quot;',
+                            author);
+
+                logRaw(result);
+
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Object Array">
+            var step2 = function () {
+                //---
+                var
+                    authors = [
+                        { name: "Craig", state: "CA" },
+                        { name: "Dan", state: "AZ" },
+                        { name: "Elijah", state: "TN" },
+                        { name: "John", state: "FL" }
+                    ],
+
+                    data = {
+                        authors: authors
+                    },
+
+                    list = '<ol start="0">' +
+                    '<% _.each(authors, function(author) { %>' +
+                        '<li><%= author.name %></li>' +
+                    '<% }); %></ol>',
+
+                    applyTemplate = _.template(list),
+                        
+                    result = applyTemplate(data);
+
+                logRaw(result);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Escaping Values">
+            var step3 = function() {
+                //---
+                var
+                  demo = {
+                   title: 'Template Syntax',
+                   example: "_.template('<p><%= message %></p>');"
+                  },
+
+                  compiled =
+                    _.template('<%= title %>: <%= example %>'),
+
+                  result = compiled(demo);
+
+                logBold('See browser log for results.');
+
+                console.log(result);
+
+                compiled =
+                    _.template('<%= title %>: <%- example %>');
+
+                result = compiled(demo);
+
+                console.log(result);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+        <script data-main="js/main" src="js/jquery.mockjson.js"></script>
+    </body>
+</html>

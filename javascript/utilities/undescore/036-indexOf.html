@@ -1,0 +1,116 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="indexOf"  />
+        <meta name="native" content="true"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integer Array">
+            var step1 = function() {
+                //---
+                var
+                    values = [1, 5, 9, 3, 6, 8, 0, 1, 5, 4],
+
+                    index = _.indexOf(values, 5);
+
+                logBold('Index of \'5\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="String Array">
+            var step2 = function() {
+                //---
+                var
+                    authors = ['Craig', 'Dan', 'Elijah', 'John', 'Elijah', 'Dan'],
+
+                    index = _.indexOf(authors, 'Elijah');
+
+                logBold('Index of \'Elijah\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Provide Start Location">
+            var step3 = function() {
+                //---
+                var
+                    authors = ['Craig', 'Dan', 'Elijah', 'John', 'Elijah', 'Dan'],
+
+                    index = _.indexOf(authors, 'Elijah', 3);
+
+                logBold('Index of \'Elijah\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="Not Found">
+            var step4 = function() {
+                //---
+                var
+                    authors = ['Craig', 'Dan', 'Elijah', 'John', 'Elijah', 'Dan'],
+
+                    index = _.indexOf(authors, 'Billy');
+
+                logBold('Index of \'Billy\':');
+                log(index);
+                //---
+            }
+        </script>
+        <script data-step="5" data-label="Do Binary Search">
+            var step5 = function() {
+                //---
+
+                // the 'firstNames' array is included
+                // via a script reference at the bottom
+                // of the page
+
+                var
+                    sorted = _.unique(firstNames.sort(), true),
+
+                    shuffled = _.shuffle(sorted),
+
+                    index; 
+                
+                console.time('Unsorted');
+                index = _.indexOf(shuffled, 'Steven');
+                console.timeEnd('Unsorted');
+
+                logBold('Index of \'Steven\':');
+                log(index);
+
+                console.time('Sorted');
+                index = _.indexOf(sorted, 'Steven', true);
+                console.timeEnd('Sorted');
+
+                logBold('Index of \'Steven\':');
+                log(index);
+
+                logBold('Names:');
+                log(sorted);
+
+                
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+        <script src="js/first-names.js"></script>
+    </body>
+</html>

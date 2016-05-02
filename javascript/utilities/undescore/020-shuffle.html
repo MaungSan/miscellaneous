@@ -1,0 +1,101 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="shuffle"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integer Array">
+            var step1 = function () {
+                //---
+                var
+                    items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+                    shuffledList = _.shuffle(items);
+
+                log(shuffledList);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="String Array">
+            var step2 = function () {
+                //---
+                var
+                    items = ['Craig', 'Dan', 'Elijah', 'John'],
+
+                    shuffledList = _.shuffle(items);
+
+                log(shuffledList);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Mixed Array">
+            var step3 = function() {
+                //---
+                var
+                    items = ['Craig', 1, undefined, true],
+
+                    shuffledList = _.shuffle(items);
+
+                log(shuffledList);
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="Multidimensional Array">
+            var step4 = function() {
+                //---
+                var
+                    items = [
+                        [1001, 1002],
+                        [2001, 2002],
+                        [3001, 3002]
+                    ],
+
+                    shuffledList = _.shuffle(items);
+
+                log(shuffledList);
+                //---
+            }
+        </script>
+        <script data-step="5" data-label="Object Array">
+            var step5 = function() {
+                //---
+                var
+                    authors = [
+                        { name: "John Papa", state: "FL" },
+                        { name: "John Sonmez", state: "FL" },
+                        { name: "Dan Wahlin", state: "AZ" },
+                        { name: "Elijah Manor", state: "TN" },
+                        { name: "Craig Shoemaker", state: "CA" },
+                        { name: "Jon Flanders", state: "CA" }
+                    ],
+
+                    logItem = function(author) {
+                        log(author.name);
+                    },
+
+                    shuffledAuthors = _.shuffle(authors);
+
+                _.each(shuffledAuthors, logItem);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

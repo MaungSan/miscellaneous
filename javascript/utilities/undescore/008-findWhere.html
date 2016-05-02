@@ -1,0 +1,71 @@
+<!doctype>
+<html>
+    <head>
+        <meta name=title content="findWhere"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Find First Object Where the Criteria is Met">
+            var step1 = function() {
+                //---
+                var
+                    courses = [
+                        {
+                            title: "Structuring JavaScript Code",
+                            author: "Dan Wahlin",
+                            level: "Intermediate"
+                        },
+                        {
+                            title: "Introduction to Building Windows 8 Applications",
+                            author: "Dan Wahlin",
+                            level: "Beginner"
+                        },
+                        {
+                            title: "Introduction to ASP.NET 4 WebForms",
+                            author: "Dan Wahlin",
+                            level: "Beginner"
+                        },
+                        {
+                            title: "HTML5 Fundamentals",
+                            author: "Craig Shoemaker",
+                            level: "Beginner",
+                        },
+                        {
+                            title: "Single Page Apps with HTML5, Web API, Knockout and jQuery",
+                            author: "John Papa",
+                            level: "Intermediate"
+                        },
+                        {
+                            title: "Front-End First: Testing and Prototyping JavaScript Apps",
+                            author: "Elijah Manor",
+                            level: "Intermediate"
+                        }
+                    ];
+
+                logBold('Intermediate Courses:');
+                log(_.findWhere(courses, { level: "Intermediate" }).title);
+
+                logBold('Dan\'s Beginner Courses');
+                log(_.findWhere(courses,
+                    {
+                        author: "Dan Wahlin",
+                        level: "Beginner"
+                    }).title);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

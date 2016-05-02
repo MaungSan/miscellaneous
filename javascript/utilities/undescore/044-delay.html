@@ -1,0 +1,46 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="delay"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                var
+                    shout = function(sizeinEms, color) {
+
+                        var msgs = $('#result li');
+
+                        _.each(msgs, function(element) {
+                            $(element).css('font-size',
+                                sizeinEms + 'em');
+
+                            $(element).css('color', color);
+
+                            $(element).css('text-transform',
+                                'uppercase');
+                        });
+                    };
+
+                _.delay(log, 1500, 'I am a delayed message!');
+                _.delay(shout, 3000, 2, 'maroon');
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

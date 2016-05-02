@@ -1,0 +1,121 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="groupBy"  />
+        <meta name="alias" content=""  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integer Array">
+            var step1 = function() {
+                //---
+                var
+                    values = [-1, 4, 7, -2, 3, 7, -3, -4, 1, 1, -7],
+
+                    groupCriteria = function(value) {
+                        return Math.abs(value);
+                    },
+
+                    logGroup = function(key) {
+                        logBold('Group (' + key + ')');
+                        log(groupedValues[key]);
+                    },
+
+                    groupedValues = _.groupBy(values, groupCriteria),
+                        
+                    keys = _.keys(groupedValues);
+
+                debugger;
+
+                logBold('Group Numbers by Absolute Value<br />');
+                _.each(keys, logGroup);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Object Array (property name)">
+            var step2 = function() {
+                //---
+                var
+                    authors = [
+                        { name: "John Papa", state: "FL" },
+                        { name: "John Sonmez", state: "FL" },
+                        { name: "Dan Wahlin", state: "AZ" },
+                        { name: "Elijah Manor", state: "TN" },
+                        { name: "Craig Shoemaker", state: "CA" },
+                        { name: "Julie Lerman", state: "VT" },
+                        { name: "Jon Flanders", state: "CA" }
+                    ],
+                    
+                    logGroup = function(key) {
+                        logBold('Group (' + key + ')');
+                        _.each(groupedAuthors[key],
+                            function(value) {
+                                log(value.name);
+                        });
+                    },
+
+                    groupedAuthors = _.groupBy(authors, 'state'),
+                        
+                    keys = _.keys(groupedAuthors);
+
+                debugger;
+
+                _.each(keys, logGroup);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Object Array (group criteria)">
+            var step3 = function() {
+                //---
+                var
+                    authors = [
+                        { name: "John Papa", state: "FL" },
+                        { name: "John Sonmez", state: "FL" },
+                        { name: "Dan Wahlin", state: "AZ" },
+                        { name: "Elijah Manor", state: "TN" },
+                        { name: "Craig Shoemaker", state: "CA" },
+                        { name: "Julie Lerman", state: "VT" },
+                        { name: "Jon Flanders", state: "CA" }
+                    ],
+
+                    groupCriteria = function(value, index, list) {
+                        return (
+                            value.state === 'CA' ||
+                            value.state === 'FL') ?
+                            'coastal' : 'landocked';
+                    },
+
+                    logGroup = function(key) {
+                        logBold('Lives in a ' + key + ' state:');
+                        _.each(groupedAuthors[key],
+                            function(value) {
+                                log(value.name);
+                        });
+                    },
+
+                    groupedAuthors = _.groupBy(authors,
+                                        groupCriteria),
+
+                    keys = _.keys(groupedAuthors);
+
+                _.each(keys, logGroup);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

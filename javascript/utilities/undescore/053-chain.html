@@ -1,0 +1,126 @@
+<!doctype>
+<html>
+    <head>
+        <meta name=title content="chain"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Highest Price">
+            var step1 = function () {
+                //---
+                var 
+                    products = [
+                        { id: 1001, active: false, price: 3.99 },
+                        { id: 1002, active: true, price: 1.89 },
+                        { id: 1003, active: true, price: 1.99 },
+                        { id: 1004, active: false, price: 4.68 },
+                        { id: 1005, active: true, price: 2.74 },
+                        { id: 1006, active: false, price: 1.23 },
+                        { id: 1007, active: true, price: 5.75 },
+                        { id: 1008, active: true, price: 6.41 }
+                    ],
+					
+                    mostExpensive = _.chain(products)
+                        .sortBy('price')
+                        .last() // sort is ascending, 
+                                // so greatest val is here
+                        .value();
+					
+                logRaw('Most expensive: &#36;' + mostExpensive.price);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Average Price">
+            var step2 = function () {
+                //---
+                var
+                    products = [
+                        { price: 1.56 },
+                        { price: 2.89 },
+                        { price: 3.12 },
+                        { price: 1.54 },
+                        { price: 2.92 },
+                        { price: 9.28 }
+                    ],
+
+                    getAveragePrice = function(products) {
+                        var result;
+
+                        result = _.chain(products)
+                            .pluck('price')
+                            .reduce(function(memo, value) {
+                                return memo + value;
+                            })
+                            .value();
+
+                        result = result / _.size(products);
+
+                        return result.toFixed(2);
+                    };
+
+                logRaw('Avg. price: &#36;' + getAveragePrice(products));
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Find Sorted Unique Values">
+            var step3 = function() {
+                //---
+                var
+
+                    products = [
+                        { desc: "Blue Sienna, $36,599" },
+                        { desc: "Yellow Mustang, $45,687" },
+                        { desc: "Red Camaro, $35,500" },
+                        { desc: "Black Mustang, $25,600" },
+                        { desc: "SALE: White Charger, $37,200" },
+                        { desc: "Silver Charger, $31,100" },
+                        { desc: "SALE: Maroon Charger, $39,900" },
+                        { desc: "Green Charger, $27,550" },
+                        { desc: "Black Charger, $41,700" },
+                        { desc: "SALE: Red Charger, $37,800" },
+                        { desc: "Yellow Charger, $37,800" },
+                        { desc: "Black Eclipse, $32,400" }
+                    ],
+
+                    results = _.chain(products)
+                      .filter(function(value) {
+
+                          return value.desc.indexOf("SALE")
+                                      === -1;
+
+                      }).sortBy(function(value) {
+
+                          var parts = value.desc.split("$");
+                          return parts[1];
+
+                      }).map(function(value) {
+
+                          var
+                              parts = value.desc.split(" "),
+                              s = parts[1];
+
+                          return s.substring(0, s.length - 1);
+
+                      }).uniq().value();
+
+                log(results);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

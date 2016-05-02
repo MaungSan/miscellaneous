@@ -1,0 +1,117 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="each"  />
+        <meta name="alias" content="forEach"  />
+        <meta name="native" content="true"  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Arrays">
+            var step1 = function() {
+                //---
+                var
+                    names = ['Craig', 'John', 'Dan', 'Elijah'];
+
+                _.each(names, function(element, index, list) {
+                    log(
+                        'Element: ' + element + ', ' +
+                        'Index: ' + index + ', ' +
+                        'List Length: ' + list.length)
+                });
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="<i class='icon-info-sign'></i> Log Function" data-listingonly="true">
+            var step2 = function() {
+                //---
+                var log = function(contents) {
+                    if (_.isArray(contents)) {
+                        _.each(contents, function(e, i, l) {
+                            log(e);
+                        });
+                    } else {
+                        $('#result').append('<li>' + contents + '</li>');
+                    }
+                };
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Object">
+            var step3 = function() {
+                //---
+                var
+                    author = { firstName: "Craig",  lastName: "Shoemaker"};
+
+                _.each(author, function(value, key) {
+                    log(
+                        'Value: ' + value + ', ' +
+                        'Key: ' + key);
+                });
+                //---
+            }
+        </script>
+        <script data-step="4" data-label="Arrays (context)">
+            var step4 = function() {
+                //---
+                var
+                    people = {
+                        names: ['Craig', 'John', 'Dan', 'Elijah'],
+                        getMessage: function(name) {
+                            return 'Hello there, ' + name + '!';
+                        }
+                    };
+
+                _.each(people.names, function(element, index, list) {
+                    log(this.getMessage(element))
+                }, people);
+                //---
+            }
+        </script>
+        <script data-step="5" data-label="Object (context)">
+            var step5 = function() {
+                //---
+                var
+                    author = {
+                        firstName: "Craig",
+                        lastName: "Shoemaker",
+                    },
+                    
+                    messager = {
+                        getGreeting: function() {
+                            return 'Hello! ';
+                        },
+
+                        getMessage: function(msg) {
+                            return this.getGreeting()
+                                + msg;
+                        }
+                    };
+
+                _.each(author, function(value, key) {
+
+                    log(this.getMessage(value));
+
+                }, messager);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3,
+                step4: step4,
+                step5: step5
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

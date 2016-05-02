@@ -1,0 +1,93 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="map"  />
+        <meta name="alias" content="collect"  />
+        <meta name="native" content="true"  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Array">
+            var step1 = function() {
+                //---
+                var
+                    names = ['Craig', 'John', 'Dan', 'Elijah'],
+
+                    m = _.map(names, function(name) {
+                        return name + ' is mapped from an array.';
+                    });
+
+                log(m);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Pass Function">
+            var step2 = function() {
+                //---
+                var
+                    authors = ['Craig', 'John', 'Dan', 'Elijah'],
+                    
+                    greet = function(name) {
+                        return 'Hello ' + name + '!';
+                    },
+
+                    greetings = _.map(authors, greet);
+
+                _.each(greetings, log);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="to Object Array (using 'collect')">
+            var step3 = function() {
+                //---
+                var
+                    data = {
+                      people: [
+                        { name: "Craig", state: "CA", price: 100 },
+                        { name: "John", state: "FL", price: 200 },
+                        { name: "Dan", state: "AZ", price: 350 },
+                        { name: "Elijah", state: "TN", price: 275 }
+                      ]
+                    },
+
+                    OrderItem = function(person) {
+                        getSummary = function() {
+                            return person.name
+                                + ' spent $'
+                                + person.price
+                                + ' in ' + person.state + '.';
+                        }
+
+                        return {
+                            getSummary: getSummary
+                        }
+                    },
+
+                    m = _.collect(data.people,
+                        function(value, key, list) {
+                            return new OrderItem(value);
+                    });
+
+                _.each(m, function(value) {
+                    log(value.getSummary());
+                });
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

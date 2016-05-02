@@ -1,0 +1,106 @@
+<!doctype>
+<html>
+    <head>
+        <meta name=title content="filter"  />
+        <meta name="alias" content="select"  />
+        <meta name="native" content="true"  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Integer Array">
+            var step1 = function() {
+                //---
+                var
+                    values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+
+                    evenCriteria = function(value) {
+                        return value % 2 === 0;
+                    },
+
+                    oddCriteria = function(value) {
+                        return value % 2 !== 0;
+                    },
+
+                    greaterThanEightCriteria = function(value) {
+                        return value > 8;
+                    },
+
+                    lessThanFiveCriteria = function(value) {
+                        return value < 5;
+                    };
+
+                log('Even numbers: '
+                    + _.filter(values, evenCriteria));
+
+                log('Odd number: '
+                    + _.filter(values, oddCriteria));
+
+                log('Numbers > 8: '
+                    + _.filter(values, greaterThanEightCriteria));
+
+                log('Numbers < 5: '
+                    + _.filter(values, lessThanFiveCriteria));
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Object Array">
+            var step2 = function() {
+                //---
+                var
+                    values = [
+                        { name: "Craig", state: "CA", price: 1 },
+                        { name: "John", state: "FL", price: 2 },
+                        { name: "Dan", state: "AZ", price: 8.5 },
+                        { name: "Elijah", state: "TN", price: 2.75 }
+                    ],
+
+                    evenCriteria = function(value) {
+                        return value.price % 2 === 0;
+                    },
+
+                    oddCriteria = function(value) {
+                        return value.price % 2 !== 0;
+                    },
+
+                    greaterThanEightCriteria = function(value) {
+                        return value.price > 8;
+                    },
+
+                    lessThanFiveCriteria = function(value) {
+                        return value.price < 5;
+                    };
+
+                logBold('Even prices:');
+                _.each(_.filter(values, evenCriteria),
+                    logProperty, 'price');
+
+                logBold('Odd prices:');
+                _.each(_.filter(values, oddCriteria),
+                    logProperty, 'price');
+
+                logBold('Prices > 8:');
+                _.each(_.filter(values, greaterThanEightCriteria),
+                    logProperty, 'price');
+
+                logBold('Prices < 5:');
+                _.each(_.filter(values, lessThanFiveCriteria),
+                    logProperty, 'price');
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="isEmpty"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                var
+                    bigArrayOfEverything = [
+                      Infinity, -Infinity, null, undefined,
+                      '', [], {}, +'forcing NaN',
+                      1, 'string', true, false,
+                      (new Date()), /regex/,
+                      [1, 2, 3], [{ id: 1 }, { id: 2 }],
+                      { id: 1 },
+                      document.getElementsByTagName('article')[0],
+                      $('article')[0],
+                      (function() { return arguments; })(1, 2, 3),
+                      (function() { return arguments; })(),
+                      function() { console.log('test'); },
+                    ];
+
+                logDescriptions(bigArrayOfEverything, _.isEmpty);
+
+                logWarning('Notice the false positives. ');
+
+                logRaw('The <code>_.isEmpty</code> function ' +
+                    'is only appropriate for objects an arrays. ' +
+                    'According to the developers, ' +
+                    '<a href="https://github.com/documentcloud/underscore/issues/432#issuecomment-3481312" target="_blank">' +
+                    'you shouldn\'t use it on strings or numbers</a> ' +
+                    'and apparently Booleans, Dates, Regular Expressions ' +
+                    'empty arguments or functions either :).');
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

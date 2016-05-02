@@ -1,0 +1,72 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="clone"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Shallow Copy">
+            var step1 = function () {
+                //---
+                var
+                    minion = { name: 'Storm Trooper' },
+
+                    clone = _.clone(minion);
+
+                clone.name = 'Clone Trooper';
+
+                logBold('Original:');
+                logObject(minion);
+
+                logBold('Clone:')
+                logObject(clone);
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Deep Clone (nested members accessed 'by ref')">
+            var step2 = function() {
+                //---
+                var
+                    minion = {
+                        name: 'Storm Trooper',
+                        duties: ['Clean AT AT', 'Find Leia']
+                    },
+
+                    clone = _.clone(minion);
+
+                clone.name = 'Clone Trooper';
+
+                logBold('Original:');
+                logObject(minion);
+
+                logBold('Clone:')
+                logObject(clone);
+
+                logBold('Update minion\'s duties, leave clone alone...<br>');
+
+                minion.duties.push('Fix Vader\'s Tie Fighter (again)');
+
+                logBold('Original:');
+                logObject(minion);
+
+                logBold('Clone:')
+                logObject(clone);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

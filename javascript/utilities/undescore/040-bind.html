@@ -1,0 +1,73 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="bind"  />
+        <meta name="alias" content=""  />
+        <meta name="native" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Default Behavior">
+            var step1 = function () {
+                //---
+                var
+                    person = {
+                        name: "Craig",
+                        url: "http://craigshoemaker.net"
+                    },
+
+                    getAnchor = function() {
+                        return '<a href="' +
+                            this.url + '">' +
+                            this.name +
+                            '</a>';
+                    };
+
+                person.getAnchor = _.bind(getAnchor, person);
+
+                log(person.getAnchor());
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="With Optional Arguments">
+            var step2 = function () {
+                //---
+                var
+                    person = {
+                        name: "Craig",
+                        url: "http://craigshoemaker.net"
+                    },
+
+                    getAnchor = function(openInNewTab) {
+
+                        var target = openInNewTab ?
+                            ' target="_blank"' : '';
+
+                        return '<a href="' +
+                            this.url + '"' +
+                            target + '>' +
+                            this.name +
+                            '</a>';
+                    };
+
+                person.getAnchor = _.bind(getAnchor, person, true);
+
+                log(person.getAnchor());
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

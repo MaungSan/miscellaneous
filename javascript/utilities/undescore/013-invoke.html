@@ -1,0 +1,92 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="invoke"  />
+        <meta name="alias" content=""  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Two Dimensional Array">
+            var step1 = function() {
+                //---
+                var values = _.invoke([
+                    ['Elijah', 'Dan', 'John', 'Craig'],
+                    [3, 2, 1]
+                ], 'sort');
+
+                _.each(values, function(value, index) {
+                    logBold('List number: ' + (index + 1));
+                    _.each(value, log);
+                });
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Extra Parameters">
+            var step2 = function() {
+                //---
+                var values = _.invoke([
+                    ['Elijah', 'Dan', 'John', 'Craig'],
+                    [3, 2, 1]
+                ], 'join', '|');
+
+                log(values);
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Object Array (returning strings)">
+            var step3 = function() {
+                //---
+                var
+                    OrderItem = function(person) {
+                        getSummary = function() {
+                            return person.name
+                                + ' spent $'
+                                + person.price
+                                + ' in ' + person.state + '.';
+                        };
+
+                        return {
+                            getSummary: getSummary
+                        };
+                    },
+                    
+                    items = [];
+
+                items.push(new OrderItem({
+                    name: "Craig",
+                    state: "CA",
+                    price: 100
+                }));
+
+                items.push(new OrderItem({
+                    name: "John",
+                    state: "FL",
+                    price: 200
+                }));
+
+                // 'results' is an array of the result 
+                // of the invoked function from each object
+
+                // throws 'TypeError' if method does not exist
+                var results = _.invoke(items, 'getSummary');
+
+                log(results);
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>

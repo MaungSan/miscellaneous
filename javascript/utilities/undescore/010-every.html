@@ -1,0 +1,140 @@
+<!doctype>
+<html>
+    <head>
+        <meta name="title" content="every"  />
+        <meta name="alias" content="all"  />
+        <meta name="native" content="true"  />
+        <meta name="context" content="true"  />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="css/global.css" rel="stylesheet" media="screen">
+        <link href="css/github-theme.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <article></article>
+        <script data-step="1" data-label="Mixed Array">
+            var step1 = function() {
+                //---
+                var values = [true, 1, null, 'yes'];
+
+                logBold('Are all values "truthy"?');
+                log(_.every(values, function(value) {
+                    return (value);
+                }));
+
+                log(_.every(values, function(value) {
+                    return (value == true);
+                }) + ' (using type coersion)');
+
+
+                logBold('Are all values "true"?');
+                log(_.every(values, function(value) {
+                    return (value === true);
+                }) + ' (using ===)');
+
+                // -------------------
+
+                values = [true, 1, 'yes'];
+
+                logBold('Are all values "truthy"?');
+                log(_.every(values, function(value) {
+                    return (value);
+                }));
+
+                log(_.every(values, function(value) {
+                    return (value == true);
+                }) + ' (using type coersion)');
+
+                logBold('Are all values "true"?');
+                log(_.every(values, function(value) {
+                    return (value === true);
+                }) + ' (using ===)');
+
+                // -------------------
+
+                values = [true, true, true];
+
+                logBold('Are all values "truthy"?');
+                log(_.every(values, function(value) {
+                    return (value);
+                }));
+
+                log(_.every(values, function(value) {
+                    return (value == true);
+                }) + ' (using type coersion)');
+
+                logBold('Are all values "true"?');
+                log(_.every(values, function(value) {
+                    return (value === true);
+                }) + ' (using ===)');
+
+
+                //---
+            }
+        </script>
+        <script data-step="2" data-label="Integer Array">
+            var step2 = function() {
+                //---
+                var
+                    values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+                logBold('Are all values "truthy"?');
+                log(_.every(values, function(value) {
+                    return (value);
+                }));
+
+                log(_.every(values, function(value) {
+                    return (value == true);
+                }));
+
+                // -------------------
+
+                logBold('Are all values "true"?');
+                log(_.every(values, function(value) {
+                    return (value === true);
+                }));
+
+                // -------------------
+
+                var
+                    evenCriteria = function(value) {
+                        return value % 2 === 0;
+                    };
+
+                logBold('Are all values even?');
+                log(_.every(values, evenCriteria));
+                //---
+            }
+        </script>
+        <script data-step="3" data-label="Object Array (evaluating against text)">
+            var step3 = function() {
+                //---
+                var
+                    values = [
+                        { name: "Craig", state: "CA" },
+                        { name: "John", state: "FL" },
+                        { name: "Dan", state: "AZ" },
+                        { name: "Elijah", state: "" }
+                    ],
+
+                    hasStateCriteria = function(value) {
+                        return (value.state !== '');
+                    };
+
+                logBold('Do all records have a value for state?');
+                log(_.all(values, hasStateCriteria));
+                //---
+            }
+        </script>
+        <script data-label="Object Literal Mapping">
+            var _commands = {
+                currentStep: 0,
+                step1: step1,
+                step2: step2,
+                step3: step3
+            };
+        </script>
+        <script data-main="js/main" src="js/require-jquery.js"></script>
+    </body>
+</html>
