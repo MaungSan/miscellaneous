@@ -19,3 +19,6 @@ C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels.S
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels.Saga\obj\Debug\FireOnWheels.Saga.csprojResolveAssemblyReference.cache
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels.Saga\obj\Debug\FireOnWheels.Saga.exe
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels.Saga\obj\Debug\FireOnWheels.Saga.pdb
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\5\FireOnWheels\FireOnWheels.Saga\bin\Debug\FireOnWheels.Saga.exe.config
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\5\FireOnWheels\FireOnWheels.Saga\obj\Debug\FireOnWheels.Saga.exe
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\5\FireOnWheels\FireOnWheels.Saga\obj\Debug\FireOnWheels.Saga.pdb

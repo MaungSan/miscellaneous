@@ -50,3 +50,6 @@ C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels\b
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels\obj\Debug\FireOnWheels.Notification.Service.csprojResolveAssemblyReference.cache
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels\obj\Debug\FireOnWheels.Notification.Service.exe
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m5\FireOnWheels\FireOnWheels\obj\Debug\FireOnWheels.Notification.Service.pdb
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\5\FireOnWheels\FireOnWheels\bin\Debug\FireOnWheels.Notification.Service.exe.config
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\5\FireOnWheels\FireOnWheels\obj\Debug\FireOnWheels.Notification.Service.exe
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\5\FireOnWheels\FireOnWheels\obj\Debug\FireOnWheels.Notification.Service.pdb
