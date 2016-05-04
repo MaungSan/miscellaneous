@@ -2,7 +2,7 @@
 {
     public static class RabbitMqConstants
     {
-        public const string RabbitMqUri = "rabbitmq://localhost/fireonwheels/";
+        public const string RabbitMqUri = "rabbitmq:15672//localhost/fireonwheels/";
         public const string UserName = "guest";
         public const string Password = "guest";
         public const string RegisterOrderServiceQueue = "registerorder.service";

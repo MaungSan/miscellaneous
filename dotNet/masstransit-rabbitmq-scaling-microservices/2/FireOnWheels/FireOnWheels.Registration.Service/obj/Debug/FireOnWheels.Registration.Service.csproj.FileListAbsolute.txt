@@ -18,3 +18,15 @@ C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.R
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.Registration.Service\obj\Debug\FireOnWheels.Registration.Service.csprojResolveAssemblyReference.cache
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.Registration.Service\obj\Debug\FireOnWheels.Registration.Service.exe
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.Registration.Service\obj\Debug\FireOnWheels.Registration.Service.pdb
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\FireOnWheels.Registration.Service.exe.config
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\FireOnWheels.Registration.Service.exe
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\FireOnWheels.Registration.Service.pdb
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\FireOnWheels.Messaging.dll
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\Newtonsoft.Json.dll
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\RabbitMQ.Client.dll
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\FireOnWheels.Messaging.pdb
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\Newtonsoft.Json.xml
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\bin\Debug\RabbitMQ.Client.xml
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\obj\Debug\FireOnWheels.Registration.Service.csprojResolveAssemblyReference.cache
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\obj\Debug\FireOnWheels.Registration.Service.exe
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.Registration.Service\obj\Debug\FireOnWheels.Registration.Service.pdb

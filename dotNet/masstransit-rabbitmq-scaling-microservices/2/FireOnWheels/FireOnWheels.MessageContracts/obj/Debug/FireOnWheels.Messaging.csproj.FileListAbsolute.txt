@@ -5,3 +5,10 @@ C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.M
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.MessageContracts\obj\Debug\FireOnWheels.Messaging.dll
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.MessageContracts\obj\Debug\FireOnWheels.Messaging.pdb
 C:\Users\Roland\Dropbox\Pluralsight\5-MassTransit\m2\FireOnWheels\FireOnWheels.MessageContracts\obj\Debug\FireOnWheels.Messaging.csprojResolveAssemblyReference.cache
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.MessageContracts\bin\Debug\FireOnWheels.Messaging.dll
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.MessageContracts\bin\Debug\FireOnWheels.Messaging.pdb
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.MessageContracts\bin\Debug\RabbitMQ.Client.dll
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.MessageContracts\bin\Debug\RabbitMQ.Client.xml
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.MessageContracts\obj\Debug\FireOnWheels.Messaging.csprojResolveAssemblyReference.cache
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.MessageContracts\obj\Debug\FireOnWheels.Messaging.dll
+C:\Users\maungs\github\miscellaneous\dotNet\masstransit-rabbitmq-scaling-microservices\2\FireOnWheels\FireOnWheels.MessageContracts\obj\Debug\FireOnWheels.Messaging.pdb
